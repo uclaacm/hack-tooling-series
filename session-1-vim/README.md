@@ -12,7 +12,11 @@ We're going to be using a version of vim called [Neovim](https://neovim.io/). In
 
 Go to [Neovim 0.4.3](https://github.com/neovim/neovim/releases/tag/v0.4.3). Click on **nvim-win64.zip** to download the file, extract it, and you're done!
 
-To start Neovim, go to where you extracted the zip file, open the **`bin`** directory, and click on `nvim-qt.exe`.
+> Note: If your computer runs on a 32-bit CPU (this usually applies to fairly old computers), download **nvim-win32.zip** instead.
+
+To start Neovim, go to where you extracted the zip file, open the **bin** directory, and double click on **nvim-qt.exe**.
+
+> Note: If an error message pops up saying that `VCRUNTIME140.dll` is missing, go to [Visual C++ Redistributable](https://support.microsoft.com/en-us/help/2977003/the-latest-supported-visual-c-downloads), download **vc\_redist.x64.exe** (or vc\_redist.x86.exe for 32-bit CPUs) and install it.
 
 ### macOS
 
