@@ -10,7 +10,9 @@ We're going to be using a version of vim called [Neovim](https://neovim.io/). In
 
 ### Windows
 
-TODO: Tim G.
+Go to [Neovim 0.4.3](https://github.com/neovim/neovim/releases/tag/v0.4.3). Click on **nvim-win64.zip** to download the file, extract it, and you're done!
+
+To start Neovim, go to where you extracted the zip file, open the **`bin`** directory, and click on `nvim-qt.exe`.
 
 ### macOS
 
@@ -30,7 +32,7 @@ brew install neovim
 
 ### Linux
 
-Neovim is available on most Linux distro package managers. The latest version is 0.4.3 (as of writing), but you really just need anything above 0.2.0 for this tutorial. Check the [Neovim install guide](https://github.com/neovim/neovim/wiki/Installing-Neovim) for specific instructions on particular distros.
+Neovim is available on most Linux distro package managers. The latest version is 0.4.3 (as of writing), but you really just need anything above 0.2.0 for this tutorial. Check the [Neovim install guide](https://github.com/neovim/neovim/wiki/Installing-Neovim#linux) for specific instructions on particular distros.
 
 
 ## A Brief History of Vim
@@ -169,7 +171,6 @@ Vim can do replacements in a file by typing `:s/old phrase/new phrase/g`. Note t
 
 vi was originally developed on a ADM-3A computer, which had the following layout.
 
-
 Note that the Ctrl key is where the caps lock key usually is and the Escape key is right above it! Typing esc or ctrl was much more ergonomic back in the good ol' vi days than it is now. Because of this, many people remap either esc or ctrl to their caps lock key. We recommend you play around with this.
 
 https://stevelosh.com/blog/2012/10/a-modern-space-cadet/#s13-control-escape
@@ -214,10 +215,3 @@ then typing: `:Tutor`. Let's try it out!
 - NERDTree
 - vim-gitgutter
 - vim-airline
-
-
-
-
-
-
-
