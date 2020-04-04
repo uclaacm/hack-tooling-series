@@ -2,11 +2,11 @@
 
 _For a UCLA student who has taken CS 31 and 32._
 
-Based on material from [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/editors/)
+Based on material from [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/editors/).
 
 ## Installing Neovim
 
-We're going to be using a version of vim called [Neovim](https://neovim.io/). Instructions to install it are [available here](https://github.com/neovim/neovim/wiki/Installing-Neovim).
+We're going to be using a version of Vim called [Neovim](https://neovim.io/). Instructions to install it are [available here](https://github.com/neovim/neovim/wiki/Installing-Neovim).
 
 ### Windows
 
@@ -64,7 +64,7 @@ The most common modes of Vim are:
 - Insert: for inserting text
 - Visual (plain, line, or block) mode: for selecting blocks of text
 
-Keys have different meanings in different modes. For example, the `x` in insert mode will just insert a literal character ‘x’, but in normal mode, it will delete the character under the cursor, and in visual mode, it will delete the selection.
+Keys have different meanings in different modes. For example, the `x` in insert mode will just insert a literal character 'x', but in normal mode, it will delete the character under the cursor, and in visual mode, it will delete the selection.
 
 Vim shows the mode it is in in the bottom left corner of the screen. By default, it is in normal mode.
 
@@ -85,7 +85,7 @@ Command mode can be entered by typing `:` in normal mode. Your cursor will jump 
 Some common commands are:
 
 - `:q` quit (close window)
-- `:w` save (“write”)
+- `:w` save ("write")
 - `:wq` save and quit
 - `:e {name of file}` open file for editing
 - `:help {topic}` open help
@@ -94,7 +94,7 @@ Some common commands are:
 
 ### Moving Around
 
-You should spend most of your time in normal mode, using movement commands to navigate the buffer. Movements in Vim are also called “nouns”, because they refer to chunks of text.
+You should spend most of your time in normal mode, using movement commands to navigate the buffer. Movements in Vim are also called "nouns", because they refer to chunks of text.
 
 Some common commands are:
 
@@ -191,31 +191,45 @@ then typing: `:Tutor`. Let's try it out!
 
 ## Advanced Features
 
+We won't be covering these in the demo, but they're cool features to play around with as you get more comfortable with Vim!
+
 ### Window and Tab Management
+
+Vim maintains a set of open files, called "buffers". A Vim session has a number of tabs, each of which has a number of windows (split panes). Each window shows a single buffer. Unlike other programs you are familiar with, like web browsers, there is not a 1-to-1 correspondence between buffers and windows; windows are merely views. A given buffer may be open in multiple windows, even within the same tab. This can be quite handy, for example, to view two different parts of a file at the same time.
+
+By default, Vim opens with a single tab, which contains a single window.
+
+`:h windows` is the reference to read more on this.
 
 ### Macros
 
+Macros are a way to repeat common keystrokes efficiently. They're hard to describe, so you should check out [this video](http://vimcasts.org/episodes/converting-haml-to-erb-with-vim-macros/) demonstrating their power. `:h q` to find out more about macros.
+
 ### Marks
+
+Ever wanted to switch efficiently between two sections of code you're working on? Marks are the answer! Type `m[letter]` to set a mark and `'[letter]` to jump to that mark. Check out `:h m` and `:h '` for details.
 
 ## Where to go after vimtutor
 
-- https://stackoverflow.com/a/1220118
-- https://www.moolenaar.net/habits.html
-- :h
-- http://vimcasts.org/
-- https://sanctum.geek.nz/arabesque/vim-koans/
-- https://learnvimscriptthehardway.stevelosh.com/
+- [The language of vim](https://stackoverflow.com/a/1220118): How to grok vim.
+- [Seven habits of effective text editing](https://www.moolenaar.net/habits.html): An essay by Bram Moolenaar, the creator of Vim.
+- `:h`, the Vim documentation. (Online Link)
+- [Vimcasts](http://vimcasts.org/): Video tutorials on Vim tricks.
+- [Vimgolf](http://www.vimgolf.com/): Challenges focused on minimizing keystrokes.
+- [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/): A book on Vimscript.
+- [Vim Koans](https://sanctum.geek.nz/arabesque/vim-koans/): Zen stories about Vim.
 
 ### Plugins
 
-[VimAwesome](https://vimawesome.com/) is a great list of plugins.
+Vim is one of the most configurable editors available and has a huge ecosystem of plugins. In general, especially when you're just starting out with Vim, we recommend avoiding most plugins that make Vim more similar to editors like VS Code or Emacs. However, there are some plugins that are essential to extending Vim's functionality or building upon the core ideas of Vim. Drew Neil covers the philosophy of various plugins more in his excellent blog post, [On sharpening the saw](http://vimcasts.org/blog/2012/08/on-sharpening-the-saw/).
 
-- minpac
-- ALE
-- FZF
-- vim-commentary
-- vim-surround
-- vim-fugitive
-- NERDTree
-- vim-gitgutter
-- vim-airline
+[VimAwesome](https://vimawesome.com/) is a great list of plugins. We'd also be remiss if we didn't mention [Tim Pope](https://github.com/tpope), a prolific Vim plugin developer who has created some of the most popular and polished plugins for Vim. Below are some of our favorites to get started.
+
+- [minpac](https://github.com/k-takata/minpac): A modern package manager.
+- [ALE](https://github.com/dense-analysis/ale): Linter/formatter integration for Vim.
+- [FZF](https://github.com/junegunn/fzf): A fuzzy finder for opening files.
+- [vim-commentary](https://github.com/tpope/vim-commentary): Easily comment stuff out.
+- [vim-surround](https://github.com/tpope/vim-surround): Easily quote/parenthesize.
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter): Git diff lines in vim.
+- [NERDTree](https://github.com/preservim/nerdtree): A file system explorer for Vim.
+- [vim-airline](https://github.com/vim-airline/vim-airline): Fancy status lines.
