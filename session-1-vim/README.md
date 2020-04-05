@@ -213,7 +213,7 @@ Ever wanted to switch efficiently between two sections of code you're working on
 
 - [The language of vim](https://stackoverflow.com/a/1220118): How to grok vim.
 - [Seven habits of effective text editing](https://www.moolenaar.net/habits.html): An essay by Bram Moolenaar, the creator of Vim.
-- `:h`, the Vim documentation. (Online Link)
+- `:h`, the Vim documentation. ([Online Link](https://neovim.io/doc/user/))
 - [Vimcasts](http://vimcasts.org/): Video tutorials on Vim tricks.
 - [Vimgolf](http://www.vimgolf.com/): Challenges focused on minimizing keystrokes.
 - [Learn Vimscript the Hard Way](https://learnvimscriptthehardway.stevelosh.com/): A book on Vimscript.
