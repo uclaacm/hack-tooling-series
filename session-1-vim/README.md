@@ -4,7 +4,7 @@ _For a UCLA student who has taken CS 31 and 32._
 
 Based on material from [The Missing Semester of Your CS Education](https://missing.csail.mit.edu/2020/editors/).
 
-## Installing Neovim
+## Installing Neovim<a id=install></a>
 
 We're going to be using a version of Vim called [Neovim](https://neovim.io/). Instructions to install it are [available here](https://github.com/neovim/neovim/wiki/Installing-Neovim).
 
