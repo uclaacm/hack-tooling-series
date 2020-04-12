@@ -115,6 +115,8 @@ This can change a commit message
 This unstages a file
 ## git checkout -- \<file\>
 This discards a file's changes.
+## git revert <commit hash>
+Creates a new commit that undoes the changes of the commit indicated by <commit hash>
 
 ---
 ## Using Git
