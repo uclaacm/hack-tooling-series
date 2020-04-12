@@ -180,12 +180,6 @@ git clone https://github.com/uclaacm/hack-tooling-series.git
 
 ## Making a First Commit
 ### Create a New File
-Right now we have a empty repository
-```
-.
-
-0 directories, 0 files
-```
 Let's create a new file in our project called `math.py` put the following text in it using your favorite text editor:
 
 ```python
@@ -194,13 +188,6 @@ def add(x, y):
     return x + y
 ```
 
-Our project now looks like this:
-```
-.
-└── math.py
-
-0 directories, 1 file
-```
 We are ready to add this file to our repository!
 
 ### Staging Changes
