@@ -30,7 +30,6 @@ Type `man gittutorial` into your command line, then <key>ENTER</key>.
 * **Fetch**
 * **Pull**
 * **Working tree**
-* **Upstream**
 
 ## What is Git?
 In short, Git lets you and your team take "snapshots" of your code at each step of development. These "snapshots" are represented as **commits** which contain the who, what, and when of your changes. We create a sort of "timeline" of your project that looks like this:
@@ -417,6 +416,34 @@ git branch -d sum-range
 <img src='assets/merge_day.png'>
 
 > *Note: The first merge doesn't create a merge commit as usual. This is because Git did a special kind of merge called a "fast-forward".
+
+## Remote (Using Github)
+Git on one computer is great and all, but this would usually all happen using an online tool like Github. You can create a Github account by going to 
+https://github.com/ (you're probably there already) and creating an account (school or personal email).
+
+Then, get can create a new repo by clicking on the "new" button, then filling out a name and clicking "Create repository".
+
+<img src='assets/git_home.png'>
+
+<img src='assets/new_repo.png'>
+
+<img src='assets/empty_repo.png'>
+
+Then, git actually gives you instructions on how to upload the repository. We'll use the following two commands.
+
+```
+git remote add origin <URL_FROM_GITHUB>
+git push -u origin master
+```
+
+Git will ask you for your Github username and password so it access your repository on Github. Fill that in.
+
+After that, you should see `math.py` on github (you may have to refresh the page). Using git with Github works just like it does locally with an extra step. We also need to keep in mine **what is stored locally vs what is stored remotely**. Here are some useful commands that you'll use a lot:
+
+* `git fetch`: retrieves data from the remote repository but doesn't change your working tree (local files).
+* `git pull`: retrieves data from the remote repository and integrates those changes into your working tree (local files).
+* `git push`: uploads the committed changes on your current branch to that branch on remote
+* `git push -u origin <branch>`: use this to push a new branch to remote; it uploads your changes and creates the new branch there.
 
 That concludes the tutorial!
 
