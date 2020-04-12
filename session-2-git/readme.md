@@ -79,7 +79,7 @@ Pro tip: Use `git commit -a` to add/stage all modified and deleted files, and th
 ### git branch \<name\>
 <img src='assets/git_branch.png'>
 
-`git branch <name>` creates a new branch that points to the commit indicated by HEAD (the "current branch").
+`git branch <branch_name>` creates a new branch that points to the commit indicated by HEAD (the "current branch").
 
 ### git checkout \<branch_name\>
 <img src='assets/git_checkout.png'>
