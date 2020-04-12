@@ -76,7 +76,7 @@ Pro tip: Use `git add -p` to manually select exactly which changes you want to s
 Pro tip: Use `git commit -a` to add/stage all modified and deleted files, and then commit.
 
 ## Branching and Merging
-### git branch \<name\>
+### git branch \<branch_name\>
 <img src='assets/git_branch.png'>
 
 `git branch <branch_name>` creates a new branch that points to the commit indicated by HEAD (the "current branch").
