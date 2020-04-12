@@ -5,7 +5,7 @@
 
 ## Resources
 **Slides**
-* []() -- TODO
+* [Slides](https://docs.google.com/presentation/d/1-tmZuCbEFgd-1ZpVQpR0-eufwwoOdzcbEzngpIhQ2w0/edit?usp=sharing)
 
 **ACM Membership Attendance Portal**
 * [Portal](http://members.uclaacm.com/login)
