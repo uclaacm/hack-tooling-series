@@ -29,6 +29,8 @@ Type `man gittutorial` into your command line, then <key>ENTER</key>.
 * **Merge Conflict**
 * **Fetch**
 * **Pull**
+* **Working tree**
+* **Upstream**
 
 ## What is Git?
 In short, Git lets you and your team take "snapshots" of your code at each step of development. These "snapshots" are represented as **commits** which contain the who, what, and when of your changes. We create a sort of "timeline" of your project that looks like this:
@@ -59,44 +61,85 @@ Nowadays, we usually code in teams. Without version control, this becomes very d
 
 ## Basic Git Operations
 ### git init
+`git init` initializes a new repository.
 ### git add
 <img src='assets/git_add.png'>
 
+`git add` lets you select changes you want *intend* to commit. It is very important to note that you add *changes*. This means that you can pick a specific change in a file and add only that part of the changed file.
+
+Pro tip: Use `git add -p` to manually select exactly which changes you want to stage.
+
 ### git commit
 <img src='assets/git_commit.png'>
+
+`git commit` takes the changes you added with `git add`, and adds them to your repository by packaging them in a **commit**. 
+
+Pro tip: Use `git commit -a` to add/stage all modified and deleted files, and then commit.
 
 ## Branching and Merging
 ### git branch \<name\>
 <img src='assets/git_branch.png'>
 
+`git branch <name>` creates a new branch that points to the commit indicated by HEAD (the "current branch").
+
 ### git checkout \<branch_name\>
 <img src='assets/git_checkout.png'>
+
+`git checkout <branch_name>` switches HEAD, which represents branch or commit that you are "at" locally, to the branch you specify. This can be any branch.
 
 ### git merge \<revision\>
 <img src='assets/git_merge.png'>
 
+`git merge <branch_name>` (current branch is master) will combine the changes of \<branch_name\> and master.
+
 ### git rebase
 <img src='assets/git_rebase.png'>
 
+`git rebase master` will take all of the commits in your current branch and move them to the tip of master (like in the picture).
+
 ## View Status
 ### git status
+This will show the differences between the HEAD commit (usually the latest one) and your current files
 ### git branch
+This will list existing branches with a '*' next to the current one.
 ### git log
+This command shows the commit logs. You'll see a list of commits that led to your current one.
 ### git diff
+Shows the difference between your working tree (files on your computer) and a commit.
 ### git show
+Can be used to view a specific object. For example, you can say `git show <commit_hash>` to show what a certain commit changed. You can find a commit hash by using `git log` and copying the big hexedecimal number by your commit. 
 
 ## Undo
 ## git commit --amend
+This can change a commit message
 ## git reset head \<file\>
+This unstages a file
 ## git checkout -- \<file\>
+This discards a file's changes.
 
 ---
 ## Using Git
 ## Starting Up
 ### Installing Git
-TODO  
-TODO  
-TODO
+#### Linux
+apt install git
+
+#### MacOS
+Install brew package manager
+* `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+`brew install git`
+
+#### Windows (or any of the above)
+https://git-scm.com/downloads
+
+### Setting Up Git
+Type in your command line (*replace Gene Block's information with yours*)
+```
+git config --global user.name “Gene Block”
+git config --global user.email “geneblock@ucla.edu”
+```
+
 ### Creating a New Repository
 Let's create a folder for our repository and then move inside it:
 
@@ -229,3 +272,178 @@ Date:   Wed Apr 8 23:20:53 2020 -0700
 Our graph looks like this... very boring:
 
 <img src='assets/boring_graph.png' width=500>
+
+## Branching
+Sometimes, we want develope in a separate branch. This is very useful because my work is somewhat isolated and won't mess anyone up*. Take the following example of two software devs: Emrakul Eldrazi and Kozilek Eldrazi
+
+### Day 1: Subtraction Branch
+Let's say we are a Software Engineer named Kozilek. We want to create a subtraction function. This time, we'll develop on a new branch called `subtraction`.
+```
+git branch subtraction
+git checkout subtraction
+```
+
+Add the following code to `math.py` below the rest:
+
+```py
+def sub(x, y):
+    return x - y
+```
+We can stage and commit our changes now with the message: "Adds subtraction function"
+
+```
+git add math.py
+git commit
+```
+Now, we should be ready to merge our new changes into master! WRONG! Kozilek still has to get his changes approved by the Quality Assurance department. This sometimes takes time at his company.
+
+<img src='assets/kozileks_day.png'>
+
+### Day 2: Sum-range Branch
+We are now the Software Engineer Emrakul. Emrakul gets the following task: 
+
+Write a function `sum_range(x, y)` that take two integers $x$ and $y$ such that $x < y$. The function returns the sum of x through y inclusive: $\sum_{i=x}^y i = x + (x+1) + ... + y$
+
+Emrakul creates a new branch of of master for her change called `sum-range`:
+
+```
+git checkout -b sum-range
+```
+
+Then, she adds the following code to the bottom `math.py`
+
+```py
+def sum_range(x, y):
+    return (y - x + 1) * (x + y) / 2
+```
+
+Finally, she commits with the message "adds sum_range function" her changes and patiently waits for Quality Assurance to approve them.
+
+```
+git commit -a
+```
+
+<img src='assets/emrakuls_day.png'>
+
+### Day 3: The Merge
+Quality Assurance has approved both Kozilek and Emrakul's changes. Let's merge them.
+
+First, we can merge Kozilek's change. Let's make sure we're on the master branch first.
+
+```
+git checkout master
+```
+Then, we can merge Kozilek's branch into master
+```
+git merge subtraction
+```
+Wow, that was easy. We now have the subtraction function in the master branch, and `git log` shows the following:
+
+```
+Author: Kozilek Eldrazi <kozilek@g.ucla.edu>
+Date:   Sat Apr 11 20:16:51 2020 -0700
+
+    Adds subtraction function
+
+commit aeb900e29558464ea38f4003daeae8cc797e9b70
+Author: Emrakul Eldrazi <emrakul@g.ucla.edu>
+Date:   Wed Apr 8 23:20:53 2020 -0700
+
+    Adds math file
+```
+
+#### Merge Conflicts
+Let's merge in Emrakul's change!
+```
+git merge sum-range
+```
+Output:
+```
+Auto-merging math.py
+CONFLICT (content): Merge conflict in math.py
+Automatic merge failed; fix conflicts and then commit the result.
+```
+
+Oops... looks like Git is having trouble merging Emrakul's changes. If we run `git status` we see the following:
+
+```
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+
+	both modified:   math.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```
+
+This happens sometimes, *don't let it scare you*. Let's **open the file** `math.py`:
+
+```python
+# math.py
+def add(x, y):
+    return x + y
+
+<<<<<< HEAD
+def sub(x, y):
+    return x - y
+======
+def sum_range(x, y):
+    return (y - x + 1) * (x + y) / 2
+>>>>>> sum-range
+```
+
+Git is showing us which changes it's having trouble merging. The format is roughly like this:
+```
+<<<<<< HEAD
+[Code on master]
+======
+[Code from branch]
+>>>>>> branch_name
+```
+We want both functions. We can tell Git this by removing the annotations it added so the file looks like this:
+```python
+# math.py
+def add(x, y):
+    return x + y
+
+def sub(x, y):
+    return x - y
+
+def sum_range(x, y):
+    return (y - x + 1) * (x + y) / 2
+```
+Next, we commit the fixed file.
+```
+git add math.py
+git commit math.py
+```
+After, we can remove the branches that we merged (this is optional)
+```
+git branch -d subtraction
+git branch -d sum-range
+```
+
+<img src='assets/merge_day.png'>
+
+> *Note: The first merge doesn't create a merge commit as usual. This is because Git did a special kind of merge called a "fast-forward".
+
+That concludes the tutorial!
+
+## Bonus Information
+### git stash
+What if you're working on a feature, and someone asks you to look at their code on another branch? You're not ready to commit, but checking out to a new branch will cause you to lose your local changes (git will actually prevent you from checking out to another branch if this is the case)! We have a command to help. You can store local changes temporarily with `git stash`. Once you come back to your branch, you can use `git stash pop` to get your changes back.
+
+Here's an example from the [documentation](https://git-scm.com/docs/git-stash#_examples)
+
+```
+# ... hack hack hack ...
+$ git stash
+$ edit emergency fix
+$ git commit -a -m "Fix in a hurry"
+$ git stash pop
+# ... continue hacking ...
+```
