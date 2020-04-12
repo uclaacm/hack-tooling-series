@@ -1,4 +1,4 @@
-# Hack Sprint Session 1: Basics of Kotlin
+# Hack Tooling Series – Git
 **Date**: April 16, 2020  
 **Location**: Zoom Meeting  
 **Teacher**: Timothy Rediehs
@@ -122,7 +122,7 @@ This discards a file's changes.
 ## Starting Up
 ### Installing Git
 #### Linux
-apt install git
+`apt install git`
 
 #### MacOS
 Install brew package manager
