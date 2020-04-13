@@ -109,11 +109,11 @@ the following pattern:
 \commandname{argument}
 ```
 
-The first command `\documentclass{article}` specifies that this documents 
-is an article. LaTeX will put in some default formatting of the document 
-based on the argument of this command. Some other types of documents are books, 
-letter, and even slides. Yes, you can write slides in LaTeX and some professors 
-in UCLA actually do their slide in LaTeX.
+The first command `\documentclass{article}` specifies that this documents is
+an article. LaTeX will put in some default formatting of the document based
+on the argument of this command. Some other types of documents are books,
+letter, exams, and even slides. Yes, you can write slides and exams in LaTeX
+and some professors in UCLA actually do their slides and exams in LaTeX.
 
 The next two commands are actually one pair of related command. This pair of
 commands define environment, and the scope of this environment starts from
@@ -444,18 +444,57 @@ Hint: Google what does the `align*` environment does.
   <img width="300px" src="images/dcos.png">
 </div>
 
-## code listing
+<details>
+<summary>Exercise 2 Solution</summary>
 
-## Inserting images and floats
+```tex
+\begin{align*}
+  \frac{d}{d\theta}\cos\theta
+  &=\frac{d}{d\theta}\frac12(e^{j\theta} + e^{-j\theta})\\
+  &=\frac12(je^{j\theta}-je^{-j\theta})\\
+  &=\frac{j}2(e^{j\theta}-e^{-j\theta})\\
+  &=-\frac1{2j}(e^{j\theta}-e^{-j\theta})\\
+  &=-\sin\theta
+\end{align*}
+```
+</details>
 
-## Inserting tables
+## LaTeX for Things Other than Math
+LaTeX is a general formatter and can be used to format anything. It is
+particularly good at math but also other stuff. Here is some other things
+that you can do in LaTeX.
 
-## Cool things about overleaf
+  - Auto syntax highlighting of code: [minted](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted)
+  - Drawing Chemical Molecules: [chemfig](https://www.overleaf.com/learn/latex/chemistry_formulae)
+  - Drawing Anything: [tikz](https://www.overleaf.com/learn/latex/LaTeX_Graphics_using_TikZ:_A_Tutorial_for_Beginners_(Part_1)%E2%80%94Basic_Drawing)
 
-but if you have used git, you probably wont need it haha
+There are a whole lot more cool packages and functionality of LaTeX waiting
+to be discovered. When you think of something, just Google and see if there
+is already a package there to support it.
+
 
 ## LaTeX in Other Places
 
-- Math Stack Exchanges
-- Piazza
-- KaTeX (in my blog)
+Now, LaTeX (and its underlying TeX engine) is a software but also the language
+for typesetting math. This can be a way to communicate math on the internet.
+LaTeX is therefore also supported on the web. For instance, all the math 
+in stackexchange is formatted using LaTeX.
+
+<div align=center>
+<img width="500px" src="images/stackexchange.png">
+</div>
+
+You can also use LaTeX in piazza as well.
+
+<div align=center>
+<img width="500px" src="images/piazza.png">
+</div>
+
+Using LaTeX in your Piazza makes your math more readable. If you are asking a
+question this helps your classmates and TAs understand your question better.
+If you answering a question, you answer is more readable as well.
+
+If you are looking to integrate LaTeX into a website, I recommend you to 
+look into [KaTeX](https://katex.org/). I personally use it in my 
+[personal website](https://galenwong.github.io/blog/2020-02-08-nesterov-momentum-equivalence/) 
+(shameless plug). 
