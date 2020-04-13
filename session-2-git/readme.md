@@ -64,7 +64,7 @@ Nowadays, we usually code in teams. Without version control, this becomes very d
 ### git add
 <img src='assets/git_add.png'>
 
-`git add` lets you select changes you want *intend* to commit. It is very important to note that you add *changes*. This means that you can pick a specific change in a file and add only that part of the changed file.
+`git add` lets you select changes you *intend* to commit. It is very important to note that you add *changes*. This means that you can pick a specific change in a file and add only that part of the changed file.
 
 Pro tip: Use `git add -p` to manually select exactly which changes you want to stage.
 
