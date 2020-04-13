@@ -1,0 +1,83 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+
+\begin{document}
+  \tableofcontents
+
+  \section{Introduction}
+  \subsection{Donald Knuth "Fun Fact"}
+  Hello World!
+  This is the 2nd line.
+  This is the 3rd line.
+
+  This is the 2nd paragraph. One time Knuth decided to crosscompile his
+  algorithms from binary to quaternary. In the process, he invented DNA.
+  Knuth's brain is the most powerful source of energy known to man.
+  Unfortunately, harnessing it would destroy mankind. Knuth recently created
+  a new sorting algorithm. Its performance is O(1). Knuth can store all
+  integers between 0 and 127 in 4 bits. Knuth invented binary.
+
+  \section{More \LaTeX}
+  \subsection{How to Make Sections}
+  We use the \textbackslash section and \textbackslash subsection command!
+
+
+  \subsection{Math}
+  This is the Pythagorean theorem: $a^2+ b^2 = c^2$. It is very cool.
+  \\
+
+  A system is linear if $S\{a_1x_1(t)+a_2x_2(t)\} = a_1S\{x_1\}+a_2f\{x_2\}$.
+  \\
+
+  Euler's formula is a mathematical formula in complex analysis that
+  establishes the fundamental relationship between the trigonometric
+  functions and the complex exponential function. Euler's formula states that
+  for any real number $x$: 
+  \[e^{i\pi} = cos(x) + i\sin(x)\]
+  \\
+
+  The Taylor series for the exponential function ex at a = 0 is
+
+  \[
+      \sum_{n=0}^\infty \frac{x^n}{n!} 
+      = \frac{x^0}{0!}+\frac{x^1}{1!} + \frac{x^2}{2!} + \frac{x^3}{3!} 
+      + \cdots
+  \]
+
+  \newpage
+  We define a convolution between two function in a continuous domain as the
+  integral of the product of the two functions after one is reversed and
+  shifted.
+  \[
+    (f*g)(t) = \int_{-\infty}^\infty f(t-\tau)g(\tau)\, d\tau
+  \]
+  How about some linear algebra? The set of all 2 by 2 rotation matrices is 
+  defined as such:
+  \[
+    \bigg\{ 
+    \begin{pmatrix}
+        \cos\theta & -\sin\theta \\
+        \sin\theta & \cos\theta
+    \end{pmatrix}: 0 \leq \theta < 2\pi
+    \bigg\}
+  \]
+
+  \subsection{Maxwell's Equations}
+
+  \[
+      \nabla\cdot\mathbf{E} = \frac{\rho}{\epsilon_0}
+  \]
+  \[
+      \nabla\cdot\mathbf{B} = 0
+  \]
+  \[
+      \nabla\times\mathbf{E} = -\frac{\partial\mathbf{B}}{\partial t}
+  \]
+  \[
+      \nabla\times\mathbf{B} 
+      = -\mu_0\bigg(\mathbf{J}
+      +\epsilon_0\frac{\partial\mathbf{E}}{\partial t}\bigg)
+  \]
+
+\end{document}
