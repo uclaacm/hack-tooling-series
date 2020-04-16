@@ -61,6 +61,8 @@ Nowadays, we usually code in teams. Without version control, this becomes very d
 ### git status
 This will show the differences between the HEAD commit (usually the latest one) and your current files
 ### git init
+<img src='assets/git_init.png'>
+
 `git init` initializes a new repository.
 ### git add
 <img src='assets/git_add.png'>
@@ -105,7 +107,8 @@ This will show the differences between the HEAD commit (usually the latest one) 
 ### git branch
 This will list existing branches with a '*' next to the current one.
 ### git log
-This command shows the commit logs. You'll see a list of commits that led to your current one.
+This command shows the commit logs. You'll see a list of commits that led to your current one.  
+`git log --graph` shows an additional little visual of the commit graph we talked about
 ### git diff
 Shows the difference between your working tree (files on your computer) and a commit.
 ### git show
