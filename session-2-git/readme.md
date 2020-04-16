@@ -81,10 +81,12 @@ Pro tip: Use `git commit -a` to add/stage all modified and deleted files, and th
 
 `git branch <branch_name>` creates a new branch that points to the commit indicated by HEAD (the "current branch").
 
-### git checkout \<branch_name\>
-<img src='assets/git_checkout.png'>
+### git switch \<branch_name\>
+<img src='assets/git_switch.png'>
 
-`git checkout <branch_name>` switches HEAD, which represents branch or commit that you are "at" locally, to the branch you specify. This can be any branch.
+`git switch <branch_name>` switches HEAD, which represents branch or commit that you are "at" locally, to the branch you specify. This can be any branch.
+
+This is the same as `git checkout <branch_name>`
 
 ### git merge \<revision\>
 <img src='assets/git_merge.png'>
