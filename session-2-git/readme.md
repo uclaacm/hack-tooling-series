@@ -59,7 +59,9 @@ Nowadays, we usually code in teams. Without version control, this becomes very d
 
 ## Basic Git Operations
 ### git status
-This will show the differences between the HEAD commit (usually the latest one) and your current files
+This will show the differences between the HEAD commit (usually the latest one) and your current files. It also will list commands for basic operations you can do like staging (adding) files, committing them, or unstaging them. This is very useful because it allows you to rely less on memory for commands.
+
+**🚨*git status will remind you of basic git commands*🚨**
 ### git init
 <img src='assets/git_init.png'>
 
@@ -79,6 +81,20 @@ Pro tip: Use `git add -p` to manually select exactly which changes you want to s
 Pro tip: Use `git commit -a` to add/stage all modified and deleted files, and then commit.
 
 ## Branching and Merging
+Branching if a commonly used practice in Git that make it easier to split development between different people or teams. One might ask "What is a branch?"  
+* C++ explanation: 
+  * A branch is like a pointer to a commit. 
+  * When you make a commit while you are on a branch, the branch will point to the new commit automatically.
+* Bookmark explanation: 
+  * A branch is like a bookmark in a choose your own adventure book where a books pages are commits. 
+  * If I have two people reading the same book, we can do that using two bookmarks. 
+  * If I read some, I move my bookmark forward, but not my friend's
+  * I can even choose a different path then my friend
+  * *This metaphor is **not** perfect*
+
+Another question: "Why use branches?"
+* Branches let developers create their own "path" of development that won't affect other teams that are not on that branch.
+ 
 ### git branch \<branch_name\>
 <img src='assets/git_branch.png'>
 
@@ -87,7 +103,7 @@ Pro tip: Use `git commit -a` to add/stage all modified and deleted files, and th
 ### git switch \<branch_name\>
 <img src='assets/git_switch.png'>
 
-`git switch <branch_name>` switches HEAD, which represents branch or commit that you are "at" locally, to the branch you specify. This can be any branch.
+`git switch <branch_name>` switches HEAD, which represents branch or commit that you are "at" locally, to the branch you specify. This can be any branch. Your files will change to reflect your new branch.
 
 This is the same as `git checkout <branch_name>`
 
