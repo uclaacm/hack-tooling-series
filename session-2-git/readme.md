@@ -41,7 +41,7 @@ Each circle is a commit. Each arrow points from a commit to the commit it came f
 1. There are no loops/cycles in the graph if you follow the arrows
 2. Commits can point to one or more other commits.
 
-We call this setup a **Directed Acyclic Graph**.
+⚠️ Misconception Alert: **Git** is NOT the same as **GitHub**. **Git** is for version control. **GitHub** is for storing Git repositories on the cloud.
 
 ## Why Use Version Control
 ### Keeping A History of Your Code
