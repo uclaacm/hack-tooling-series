@@ -420,8 +420,8 @@ git branch -d sum-range
 > *Note: The first merge doesn't create a merge commit as usual. This is because Git did a special kind of merge called a "fast-forward".
 
 ## Remote (Using Github)
-Git on one computer is great and all, but this would usually all happen using an online tool like Github. You can create a Github account by going to 
-https://github.com/ (you're probably there already) and creating an account (school or personal email).
+### Setting Up Github
+Git on one computer is great and all, but this would usually all happen using an online tool like Github. You can create a Github account by going to https://github.com/ (you're probably there already) and creating an account (school or personal email).
 
 Then, get can create a new repo by clicking on the "new" button, then filling out a name and clicking "Create repository".
 
@@ -431,14 +431,56 @@ Then, get can create a new repo by clicking on the "new" button, then filling ou
 
 <img src='assets/empty_repo.png'>
 
-Then, git actually gives you instructions on how to upload the repository. We'll use the following two commands.
+#### Uploading Your Code to GitHub
+Then, git actually gives you instructions on how to upload the repository in the repository. However, let's say we didn't see that. Usually we following command to do that:
+```
+git push
+```
+Oh no! We get an error:
+```
+fatal: No configured push destination.
+Either specify the URL from the command-line or configure a remote repository using
 
+    git remote add <name> <url>
+
+and then push using the remote name
+
+    git push <name>
+
+```
+
+Ok, but **Git tells us what to do**. Let's try the first command with 
+* \<name\> is **origin** 
+* \<url\> is **copied from the URL on Github under "Quick Setup"**:
+
+```
+git remote add origin <url>
+```
+
+Great! Let's try the next one :
+```
+git push origin
+```
+
+Oh no! Another error:
+```
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+```
+
+Great, let's use that command!
+```
+git push --set-upstream origin master
+```
+This command should succeed. Git will ask you for your Github username and password so it access your repository on Github. Fill that in.
+
+In the end, the commands you need are the two below, but you only really need to remember `git push`, as these two will be displayed to you on Git or GitHub.
 ```
 git remote add origin <URL_FROM_GITHUB>
 git push -u origin master
 ```
-
-Git will ask you for your Github username and password so it access your repository on Github. Fill that in.
 
 After that, you should see `math.py` on github (you may have to refresh the page). Using git with Github works just like it does locally with an extra step. We also need to keep in mine **what is stored locally vs what is stored remotely**. Here are some useful commands that you'll use a lot:
 
