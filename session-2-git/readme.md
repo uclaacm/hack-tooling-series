@@ -5,7 +5,7 @@
 
 ## Resources
 **Slides**
-* []() -- TODO
+* [Slides](https://docs.google.com/presentation/d/1-tmZuCbEFgd-1ZpVQpR0-eufwwoOdzcbEzngpIhQ2w0/edit?usp=sharing)
 
 **ACM Membership Attendance Portal**
 * [Portal](http://members.uclaacm.com/login)
@@ -20,16 +20,15 @@ Type `man gittutorial` into your command line, then <key>ENTER</key>.
 
 ---
 ## About Version Control
-## Terms You'll Learn
-* **Version Control**
-* **Repository**
-* **Commit**
-* **Branch**
-* **Merge**
-* **Merge Conflict**
-* **Fetch**
-* **Pull**
-* **Working tree**
+## What You'll Learn
+* What is Git?
+* Why use Version Control?
+* Basic Git Operations
+    * Status, Staging, Committing
+* Branching and Merging
+* Viewing Repository Status
+* Undo Commands
+* Using Git (Demo)
 
 ## What is Git?
 In short, Git lets you and your team take "snapshots" of your code at each step of development. These "snapshots" are represented as **commits** which contain the who, what, and when of your changes. We create a sort of "timeline" of your project that looks like this:
@@ -59,12 +58,14 @@ One of the many nice things about version control is that it helps you keep trac
 Nowadays, we usually code in teams. Without version control, this becomes very difficult. If two people made changes, those changes would have to be manually combined. This would be an error prone disaster. Heaven forbid they modify the same file.
 
 ## Basic Git Operations
+### git status
+This will show the differences between the HEAD commit (usually the latest one) and your current files
 ### git init
 `git init` initializes a new repository.
 ### git add
 <img src='assets/git_add.png'>
 
-`git add` lets you select changes you want *intend* to commit. It is very important to note that you add *changes*. This means that you can pick a specific change in a file and add only that part of the changed file.
+`git add` lets you select changes you *intend* to commit. It is very important to note that you add *changes*. This means that you can pick a specific change in a file and add only that part of the changed file.
 
 Pro tip: Use `git add -p` to manually select exactly which changes you want to stage.
 
@@ -98,7 +99,7 @@ This is the same as `git checkout <branch_name>`
 
 `git rebase master` will take all of the commits in your current branch and move them to the tip of master (like in the picture).
 
-## View Status
+## Viewing Repository Status
 ### git status
 This will show the differences between the HEAD commit (usually the latest one) and your current files
 ### git branch
@@ -110,7 +111,7 @@ Shows the difference between your working tree (files on your computer) and a co
 ### git show
 Can be used to view a specific object. For example, you can say `git show <commit_hash>` to show what a certain commit changed. You can find a commit hash by using `git log` and copying the big hexedecimal number by your commit. 
 
-## Undo
+## Undo Commands
 ## git commit --amend
 This can change a commit message
 ## git reset head \<file\>
@@ -265,6 +266,11 @@ Our graph looks like this... very boring:
 
 ## Branching
 Sometimes, we want develope in a separate branch. This is very useful because my work is somewhat isolated and won't mess anyone up*. Take the following example of two software devs: Emrakul Eldrazi and Kozilek Eldrazi
+
+### An Overiew
+Day 1: Kozilek makes a new branch off master and pushes a commit to it
+Day 2: Emrakul makes a new branch off master and pushes a commit to it
+Day 3: Kozilek merges his branch into master and succeeds, then Emrakul tries to merge her branch, but **fails** with a merge conflict. Emrakul fixes the merge conflict and successfully merges her branch.
 
 ### Day 1: Subtraction Branch
 Let's say we are a Software Engineer named Kozilek. We want to create a subtraction function. This time, we'll develop on a new branch called `subtraction`.
