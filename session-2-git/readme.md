@@ -114,10 +114,12 @@ Can be used to view a specific object. For example, you can say `git show <commi
 ## Undo Commands
 ## git commit --amend
 This can change a commit message
-## git reset head \<file\>
+## git restore --staged \<file\>
 This unstages a file
-## git checkout -- \<file\>
+Another way of saying: `git reset head \<file\>`
+## git restore \<file\>
 This discards a file's changes.
+Another way of saying: `git checkout -- \<file\>`
 ## git revert <commit hash>
 Creates a new commit that undoes the changes of the commit indicated by <commit hash>
 
