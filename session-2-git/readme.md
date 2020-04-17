@@ -1,16 +1,20 @@
 # Hack Tooling Series – Git
+
 **Date**: April 16, 2020  
 **Location**: Zoom Meeting  
 **Teacher**: Timothy Rediehs
 
 ## Resources
+
 **Slides**
-* [Slides](https://docs.google.com/presentation/d/1-tmZuCbEFgd-1ZpVQpR0-eufwwoOdzcbEzngpIhQ2w0/edit?usp=sharing)
+
+- [Slides](https://docs.google.com/presentation/d/1-tmZuCbEFgd-1ZpVQpR0-eufwwoOdzcbEzngpIhQ2w0/edit?usp=sharing)
 
 **ACM Membership Attendance Portal**
-* [Portal](http://members.uclaacm.com/login)
 
-**Other useful resources** 
+- [Portal](http://members.uclaacm.com/login)
+
+**Other useful resources**
 
 [The Missing Semester of Your CS Education: Git](https://missing.csail.mit.edu/2020/version-control/#snapshots)
 
@@ -19,18 +23,22 @@
 Type `man gittutorial` into your command line, then <key>ENTER</key>.
 
 ---
+
 ## About Version Control
+
 ## What You'll Learn
-* What is Git?
-* Why use Version Control?
-* Basic Git Operations
-    * Status, Staging, Committing
-* Branching and Merging
-* Viewing Repository Status
-* Undo Commands
-* Using Git (Demo)
+
+- What is Git?
+- Why use Version Control?
+- Basic Git Operations
+  - Status, Staging, Committing
+- Branching and Merging
+- Viewing Repository Status
+- Undo Commands
+- Using Git (Demo)
 
 ## What is Git?
+
 In short, Git lets you and your team take "snapshots" of your code at each step of development. These "snapshots" are represented as **commits** which contain the who, what, and when of your changes. We create a sort of "timeline" of your project that looks like this:
 
 <img src='assets/bare_graph.png' width=500>
@@ -43,7 +51,9 @@ Each circle is a commit. Each arrow points from a commit to the commit it came f
 ⚠️ Misconception Alert: **Git** is NOT the same as **GitHub**. **Git** is for version control. **GitHub** is for storing Git repositories on the cloud.
 
 ## Why Use Version Control
+
 ### Keeping A History of Your Code
+
 One of the many nice things about version control is that it helps you keep track of how your code has changed. This is very useful, because it allows you to:
 
 1. Find out **what** change was made in a file
@@ -55,52 +65,65 @@ One of the many nice things about version control is that it helps you keep trac
    1. No more commenting out code just to "keep it around just in case"
 
 ### Collaborate with Others Concurrently
+
 Nowadays, we usually code in teams. Without version control, this becomes very difficult. If two people made changes, those changes would have to be manually combined. This would be an error prone disaster. Heaven forbid they modify the same file.
 
 ## Basic Git Operations
+
 ### git status
+
 This will show the differences between the HEAD commit (usually the latest one) and your current files. It also will list commands for basic operations you can do like staging (adding) files, committing them, or unstaging them. This is very useful because it allows you to rely less on memory for commands.
 
 **🚨*git status will remind you of basic git commands*🚨**
+
 ### git init
+
 <img src='assets/git_init.png'>
 
 `git init` initializes a new repository.
+
 ### git add
+
 <img src='assets/git_add.png'>
 
-`git add` lets you select changes you *intend* to commit. It is very important to note that you add *changes*. This means that you can pick a specific change in a file and add only that part of the changed file.
+`git add` lets you select changes you _intend_ to commit. It is very important to note that you add _changes_. This means that you can pick a specific change in a file and add only that part of the changed file.
 
 Pro tip: Use `git add -p` to manually select exactly which changes you want to stage.
 
 ### git commit
+
 <img src='assets/git_commit.png'>
 
-`git commit` takes the changes you added with `git add`, and adds them to your repository by packaging them in a **commit**. 
+`git commit` takes the changes you added with `git add`, and adds them to your repository by packaging them in a **commit**.
 
 Pro tip: Use `git commit -a` to add/stage all modified and deleted files, and then commit.
 
 ## Branching and Merging
-Branching if a commonly used practice in Git that make it easier to split development between different people or teams. One might ask "What is a branch?"  
-* C++ explanation: 
-  * A branch is like a pointer to a commit. 
-  * When you make a commit while you are on a branch, the branch will point to the new commit automatically.
-* Bookmark explanation: 
-  * A branch is like a bookmark in a choose your own adventure book where a books pages are commits. 
-  * If I have two people reading the same book, we can do that using two bookmarks. 
-  * If I read some, I move my bookmark forward, but not my friend's
-  * I can even choose a different path then my friend
-  * *This metaphor is **not** perfect*
+
+Branching if a commonly used practice in Git that make it easier to split development between different people or teams. One might ask "What is a branch?"
+
+- C++ explanation:
+  - A branch is like a pointer to a commit.
+  - When you make a commit while you are on a branch, the branch will point to the new commit automatically.
+- Bookmark explanation:
+  - A branch is like a bookmark in a choose your own adventure book where a books pages are commits.
+  - If I have two people reading the same book, we can do that using two bookmarks.
+  - If I read some, I move my bookmark forward, but not my friend's
+  - I can even choose a different path then my friend
+  - _This metaphor is **not** perfect_
 
 Another question: "Why use branches?"
-* Branches let developers create their own "path" of development that won't affect other teams that are not on that branch.
- 
+
+- Branches let developers create their own "path" of development that won't affect other teams that are not on that branch.
+
 ### git branch \<branch_name\>
+
 <img src='assets/git_branch.png'>
 
 `git branch <branch_name>` creates a new branch that points to the commit indicated by HEAD (the "current branch").
 
 ### git switch \<branch_name\>
+
 <img src='assets/git_switch.png'>
 
 `git switch <branch_name>` switches HEAD, which represents branch or commit that you are "at" locally, to the branch you specify. This can be any branch. Your files will change to reflect your new branch.
@@ -108,64 +131,95 @@ Another question: "Why use branches?"
 This is the same as `git checkout <branch_name>`
 
 ### git merge \<revision\>
+
 <img src='assets/git_merge.png'>
 
 `git merge <branch_name>` (current branch is master) will combine the changes of \<branch_name\> and master.
 
 ### git rebase
+
 <img src='assets/git_rebase.png'>
 
 `git rebase master` will take all of the commits in your current branch and move them to the tip of master (like in the picture).
 
 ## Viewing Repository Status
+
 ### git status
+
 This will show the differences between the HEAD commit (usually the latest one) and your current files
+
 ### git branch
-This will list existing branches with a '*' next to the current one.
+
+This will list existing branches with a '\*' next to the current one.
+
 ### git log
+
 This command shows the commit logs. You'll see a list of commits that led to your current one.  
 `git log --graph` shows an additional little visual of the commit graph we talked about
+
 ### git diff
+
 Shows the difference between your working tree (files on your computer) and a commit.
+
 ### git show
-Can be used to view a specific object. For example, you can say `git show <commit_hash>` to show what a certain commit changed. You can find a commit hash by using `git log` and copying the big hexedecimal number by your commit. 
+
+Can be used to view a specific object. For example, you can say `git show <commit_hash>` to show what a certain commit changed. You can find a commit hash by using `git log` and copying the big hexedecimal number by your commit.
 
 ## Undo Commands
+
 ## git commit --amend
+
 This can change a commit message
+
 ## git restore --staged \<file\>
+
 This unstages a file
 Another way of saying: `git reset head \<file\>`
+
 ## git restore \<file\>
+
 This discards a file's changes.
 Another way of saying: `git checkout -- \<file\>`
+
 ## git revert <commit hash>
+
 Creates a new commit that undoes the changes of the commit indicated by <commit hash>
 
 ---
+
 ## Using Git
+
 ## Starting Up
+
 ### Installing Git
+
 #### Linux
+
 `apt install git`
 
 #### MacOS
+
 Install brew package manager
-* `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
+
+- `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"`
 
 `brew install git`
 
 #### Windows (or any of the above)
+
 https://git-scm.com/downloads
 
 ### Setting Up Git
-Type in your command line (*replace Gene Block's information with yours*)
+
+Type in your command line (_replace Gene Block's information with yours_)
+
 ```
 git config --global user.name “Gene Block”
 git config --global user.email “geneblock@ucla.edu”
 ```
 
 ### Creating a New Repository
+
 Let's create a folder for our repository and then move inside it:
 
 ```
@@ -190,6 +244,7 @@ Initialized empty Git repository in .git/
 Congratulations, you're done with setup.
 
 ### Cloning an Existing Repository
+
 Often times, we'll want to create a copy of an existing repository. You can do so with the following command:
 
 `git clone <repository>`: This command copies a repository indicated by the `<repository>`. `<repository>` can be a path to a local folder, or even a url that points to a repository (on github for instance)!
@@ -198,13 +253,16 @@ If you want to clone a repository from git hub, you can get the URL here:
 
 PICTURE OF GITHUB
 
-and then use the clone command like this example (make sure to be in the directory that you want the project's folder to be inside of): 
+and then use the clone command like this example (make sure to be in the directory that you want the project's folder to be inside of):
+
 ```
 git clone https://github.com/uclaacm/hack-tooling-series.git
 ```
 
 ## Making a First Commit
+
 ### Create a New File
+
 Let's create a new file in our project called `math.py` put the following text in it using your favorite text editor:
 
 ```python
@@ -216,11 +274,15 @@ def add(x, y):
 We are ready to add this file to our repository!
 
 ### Staging Changes
+
 We have made a change to our project. The next step is to tell Git **which changes we want to commit**. Well... what is there? Let's try finding out by using this command:
+
 ```
 git status
 ```
+
 We get back:
+
 ```
 On branch master
 
@@ -233,11 +295,15 @@ Untracked files:
 
 nothing added to commit but untracked files present (use "git add" to track)
 ```
+
 Wow! Isn't Git so helpful? It tells us: `use "git add <file>..." to include in what will be committed`. Let's do that:
+
 ```
 git add math.py
 ```
+
 Now `git status` will show:
+
 ```
 On branch master
 
@@ -252,28 +318,37 @@ Changes to be committed:
 We have set our change to be committed! Mission Accomplished.
 
 ### Committing Changes
+
 Now, let's actually commit our staged changes:
+
 ```
 git commit
 ```
+
 `git commit`: this will create a **commit** with all of your **staged** changes
 
 Git will open up a command line text editor (probably Vim) for a **commit message**. These are descriptions of the changes you made. It's Vim... so:
+
 1. Press 'i' for insert mode
 2. Type message: Adds math file
 3. Press ESC, then ':wq', then ENTER to quit Vim
 
 You should see something like this after:
+
 ```
 [master (root-commit) aeb900e] Adds math file
  1 file changed, 3 insertions(+)
  create mode 100644 math.py
 ```
+
 We can use check on our progress with the following:
+
 ```
 git log
 ```
+
 to see our one commit:
+
 ```
 commit aeb900e29558464ea38f4003daeae8cc797e9b70 (HEAD -> master)
 Author: Emrakul Eldrazi <eeldrazi@g.ucla.edu>
@@ -281,20 +356,25 @@ Date:   Wed Apr 8 23:20:53 2020 -0700
 
     Adds math file
 ```
+
 Our graph looks like this... very boring:
 
 <img src='assets/boring_graph.png' width=500>
 
 ## Branching
-Sometimes, we want develope in a separate branch. This is very useful because my work is somewhat isolated and won't mess anyone up*. Take the following example of two software devs: Emrakul Eldrazi and Kozilek Eldrazi
+
+Sometimes, we want develope in a separate branch. This is very useful because my work is somewhat isolated and won't mess anyone up\*. Take the following example of two software devs: Emrakul Eldrazi and Kozilek Eldrazi
 
 ### An Overiew
+
 Day 1: Kozilek makes a new branch off master and pushes a commit to it
 Day 2: Emrakul makes a new branch off master and pushes a commit to it
 Day 3: Kozilek merges his branch into master and succeeds, then Emrakul tries to merge her branch, but **fails** with a merge conflict. Emrakul fixes the merge conflict and successfully merges her branch.
 
 ### Day 1: Subtraction Branch
+
 Let's say we are a Software Engineer named Kozilek. We want to create a subtraction function. This time, we'll develop on a new branch called `subtraction`.
+
 ```
 git branch subtraction
 git checkout subtraction
@@ -306,18 +386,21 @@ Add the following code to `math.py` below the rest:
 def sub(x, y):
     return x - y
 ```
+
 We can stage and commit our changes now with the message: "Adds subtraction function"
 
 ```
 git add math.py
 git commit
 ```
+
 Now, we should be ready to merge our new changes into master! WRONG! Kozilek still has to get his changes approved by the Quality Assurance department. This sometimes takes time at his company.
 
 <img src='assets/kozileks_day.png'>
 
 ### Day 2: Sum-range Branch
-We are now the Software Engineer Emrakul. Emrakul gets the following task: 
+
+We are now the Software Engineer Emrakul. Emrakul gets the following task:
 
 Write a function `sum_range(x, y)` that take two integers $x$ and $y$ such that $x < y$. The function returns the sum of x through y inclusive: $\sum_{i=x}^y i = x + (x+1) + ... + y$
 
@@ -343,6 +426,7 @@ git commit -a
 <img src='assets/emrakuls_day.png'>
 
 ### Day 3: The Merge
+
 Quality Assurance has approved both Kozilek and Emrakul's changes. Let's merge them.
 
 First, we can merge Kozilek's change. Let's make sure we're on the master branch first.
@@ -350,10 +434,13 @@ First, we can merge Kozilek's change. Let's make sure we're on the master branch
 ```
 git checkout master
 ```
+
 Then, we can merge Kozilek's branch into master
+
 ```
 git merge subtraction
 ```
+
 Wow, that was easy. We now have the subtraction function in the master branch, and `git log` shows the following:
 
 ```
@@ -370,11 +457,15 @@ Date:   Wed Apr 8 23:20:53 2020 -0700
 ```
 
 #### Merge Conflicts
+
 Let's merge in Emrakul's change!
+
 ```
 git merge sum-range
 ```
+
 Output:
+
 ```
 Auto-merging math.py
 CONFLICT (content): Merge conflict in math.py
@@ -397,7 +488,7 @@ Unmerged paths:
 no changes added to commit (use "git add" and/or "git commit -a")
 ```
 
-This happens sometimes, *don't let it scare you*. Let's **open the file** `math.py`:
+This happens sometimes, _don't let it scare you_. Let's **open the file** `math.py`:
 
 ```python
 # math.py
@@ -414,6 +505,7 @@ def sum_range(x, y):
 ```
 
 Git is showing us which changes it's having trouble merging. The format is roughly like this:
+
 ```
 <<<<<< HEAD
 [Code on master]
@@ -421,7 +513,9 @@ Git is showing us which changes it's having trouble merging. The format is rough
 [Code from branch]
 >>>>>> branch_name
 ```
+
 We want both functions. We can tell Git this by removing the annotations it added so the file looks like this:
+
 ```python
 # math.py
 def add(x, y):
@@ -433,12 +527,16 @@ def sub(x, y):
 def sum_range(x, y):
     return (y - x + 1) * (x + y) / 2
 ```
+
 Next, we commit the fixed file.
+
 ```
 git add math.py
 git commit math.py
 ```
+
 After, we can remove the branches that we merged (this is optional)
+
 ```
 git branch -d subtraction
 git branch -d sum-range
@@ -446,10 +544,12 @@ git branch -d sum-range
 
 <img src='assets/merge_day.png'>
 
-> *Note: The first merge doesn't create a merge commit as usual. This is because Git did a special kind of merge called a "fast-forward".
+> \*Note: The first merge doesn't create a merge commit as usual. This is because Git did a special kind of merge called a "fast-forward".
 
 ## Remote (Using Github)
+
 ### Setting Up Github
+
 Git on one computer is great and all, but this would usually all happen using an online tool like Github. You can create a Github account by going to https://github.com/ (you're probably there already) and creating an account (school or personal email).
 
 Then, get can create a new repo by clicking on the "new" button, then filling out a name and clicking "Create repository".
@@ -461,11 +561,15 @@ Then, get can create a new repo by clicking on the "new" button, then filling ou
 <img src='assets/empty_repo.png'>
 
 #### Uploading Your Code to GitHub
+
 Then, git actually gives you instructions on how to upload the repository in the repository. However, let's say we didn't see that. Usually we following command to do that:
+
 ```
 git push
 ```
+
 Oh no! We get an error:
+
 ```
 fatal: No configured push destination.
 Either specify the URL from the command-line or configure a remote repository using
@@ -478,20 +582,23 @@ and then push using the remote name
 
 ```
 
-Ok, but **Git tells us what to do**. Let's try the first command with 
-* \<name\> is **origin** 
-* \<url\> is **copied from the URL on Github under "Quick Setup"**:
+Ok, but **Git tells us what to do**. Let's try the first command with
+
+- \<name\> is **origin**
+- \<url\> is **copied from the URL on Github under "Quick Setup"**:
 
 ```
 git remote add origin <url>
 ```
 
 Great! Let's try the next one :
+
 ```
 git push origin
 ```
 
 Oh no! Another error:
+
 ```
 fatal: The current branch master has no upstream branch.
 To push the current branch and set the remote as upstream, use
@@ -500,12 +607,15 @@ To push the current branch and set the remote as upstream, use
 ```
 
 Great, let's use that command!
+
 ```
 git push --set-upstream origin master
 ```
+
 This command should succeed. Git will ask you for your Github username and password so it access your repository on Github. Fill that in.
 
 In the end, the commands you need are the two below, but you only really need to remember `git push`, as these two will be displayed to you on Git or GitHub.
+
 ```
 git remote add origin <URL_FROM_GITHUB>
 git push -u origin master
@@ -513,15 +623,17 @@ git push -u origin master
 
 After that, you should see `math.py` on github (you may have to refresh the page). Using git with Github works just like it does locally with an extra step. We also need to keep in mine **what is stored locally vs what is stored remotely**. Here are some useful commands that you'll use a lot:
 
-* `git fetch`: retrieves data from the remote repository but doesn't change your working tree (local files).
-* `git pull`: retrieves data from the remote repository and integrates those changes into your working tree (local files).
-* `git push`: uploads the committed changes on your current branch to that branch on remote
-* `git push -u origin <branch>`: use this to push a new branch to remote; it uploads your changes and creates the new branch there.
+- `git fetch`: retrieves data from the remote repository but doesn't change your working tree (local files).
+- `git pull`: retrieves data from the remote repository and integrates those changes into your working tree (local files).
+- `git push`: uploads the committed changes on your current branch to that branch on remote
+- `git push -u origin <branch>`: use this to push a new branch to remote; it uploads your changes and creates the new branch there.
 
 That concludes the tutorial!
 
 ## Bonus Information
+
 ### git stash
+
 What if you're working on a feature, and someone asks you to look at their code on another branch? You're not ready to commit, but checking out to a new branch will cause you to lose your local changes (git will actually prevent you from checking out to another branch if this is the case)! We have a command to help. You can store local changes temporarily with `git stash`. Once you come back to your branch, you can use `git stash pop` to get your changes back.
 
 Here's an example from the [documentation](https://git-scm.com/docs/git-stash#_examples)
@@ -534,3 +646,29 @@ $ git commit -a -m "Fix in a hurry"
 $ git stash pop
 # ... continue hacking ...
 ```
+
+## Questions from the workshop
+
+In case you missed our live session, here are the questions and answers that were asked:
+
+- If you git init a local repository and push changes (without attaching your repo to GitHub/Gerrit/etc.), would those pushed changes be stored in a separate (local) space from local commits?
+  - Push is used to upload local repository content to a remote repository such as GitHub. If you push without specifying a push destination, you'll get an error. You can still commit your changes.
+- Which way do the arrows go in this diagram? <img src='assets/bare_graph.png' width=500>
+  - Each new commit points to its parent. So in this diagram time goes from left to right and newer commits point back to older commits.
+- Does git switch still have the same options as git checkout? Like -b
+  - git switch -c is the new git checkout -b where the c stands for "create." Both of these commands will switch to a newly created branch.
+- Where in memory are the file backups stored?
+  - File backups are stored in the Git database, inside the .git folder. Git can determine whether it is more efficient to store the new version entirely or just the difference.
+- Has anyone ever used git to try stuff out without accidentally compromising everything (like a sandbox in Minecraft)?
+  - You can use branches to try out new functionalities separate from master - it’s kind of like a sandbox in that manner . And then you’d only commit successful changes to a branch.
+- How do you install git for linux?
+  - If you're on Ubuntu, `sudo apt-get install git`. You can also check out instructions here: https://git-scm.com/download/linux.
+- When you list the files in your project folder are your branches also shown?
+  - No. You can see your branches with `git branch`.
+- Can you delete master?
+  - You can delete master, and you will not get a warning. However, you cannot delete master if you are on master.
+- Do you have a favorite git command?
+  - Tim R: `git stash` for storing changes temporarily.
+  - Tim G: `git reflog` If a commit gets lost, you can find it back.
+- Is there a way to clear git stash?
+  - `git stash drop`
