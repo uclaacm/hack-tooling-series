@@ -13,7 +13,8 @@
 - [Portal](https://members.uclaacm.com/login)
 
 **Download Links - Bash for Windows**
-- TODO
+- [git for Windows](https://gitforwindows.org/)
+- [Ubuntu terminal](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview)
 
 ## Table of Contents
 - <a href="#intro">Intro to shell and Bash</a>
@@ -351,7 +352,7 @@ One example of this is when you double-tap tab to autocomplete, not only will it
 
 <img src="images/zsh.png">
 
-By default, zsh comes with the Git plugin pre-installed. For those of you who are familiar with Git, zsh helps a lot because it shows you what branch you are currently in, for a directory initialized with Git. There are also shorthands for Git expressions. For example:
+By default, zsh comes with the git plugin pre-installed. For those of you who are familiar with git, zsh helps a lot because it shows you what branch you are currently in, for a directory initialized with git. There are also shorthands for git expressions. For example:
 - `git status` -> gs
 - `git add --all` -> gaa
 - `git commit -m "commit message"` -> gcmsg "commit message"
