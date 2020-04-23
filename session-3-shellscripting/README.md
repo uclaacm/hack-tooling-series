@@ -443,7 +443,30 @@ echo "Hello $name!"
 
 There is no space between each side of the equals sign!! I know this is sometimes bad style in other languages but it is not allowed in Bash. To access the variable, we use the dollar sign syntax again.
 
+The next section will be centered around a tutorial for making a simple link opening application. Here we assume that we are keeping a bunch of labeled links in a file called `bookmark.log`.
+
+`bookmark.log` might look something like this:
+
+```
+hack https://hack.uclaacm.com/
+hack https://www.facebook.com/groups/acmhack/
+acm https://www.youtube.com/channel/UCwTqwgA4thysNbB2kNYsCIw
+acm http://www.uclaacm.com/
+acm https://members.uclaacm.com/login
+
+```
+
 ### Command Substitution
+
+Let's say we want to count the number bookmarks that start with hack and save it to a variable. We can use the grep command:
+
+```bash
+grep -c "^$1 " bookmark.log
+```
+
+```bash
+bookmarkCount=`grep -c "^$1 " bookmark.log`
+```
 
 ### Conditionals
 
@@ -458,3 +481,7 @@ This is a tool to find synonyms by smallwat3r: https://github.com/smallwat3r/syn
 And here's a bunch more CLI apps: https://github.com/agarrharr/awesome-cli-apps.
 
 A lot of them are in JS, Python, and other languages, but as an exercise you can try writing them as a shell script! Also think about any other tasks you might want to do quickly, like mass renaming files or spellchecking your Hawaiian words.
+
+```
+
+```

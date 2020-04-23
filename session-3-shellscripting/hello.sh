@@ -5,8 +5,9 @@ echo 'Hello $1!' # This will print Hello $1!
 name=$1
 echo "Hello $name!"
 
+bookmarkCount=`grep -c "^$1 " bookmark.log`
 # check if argument is found in bookmark.log
-if [ `grep -c "^$1 " bookmark.log` -gt 0 ]
+if [ $bookmarkCount -gt 0 ]
 	then
 	# replace all instances of the bookmark name with open
 	# then run in bash
