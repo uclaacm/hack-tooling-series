@@ -14,10 +14,20 @@
 
 - [Portal](https://members.uclaacm.com/login)
 
-**Download Links - Bash for Windows**
-
+**Resources**\
+Bash Download for Windows
 - [git for Windows](https://gitforwindows.org/)
 - [Ubuntu terminal](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview)
+
+tldr (Simpler version of Linux `man` pages)
+- [Link](https://tldr.ostera.io/)
+
+Oh My Zsh
+
+- [Home page](https://ohmyz.sh/)
+- [How to install zsh](https://github.com/ohmyzsh/ohmyzsh/wikiInstalling-ZSH)
+- [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+- [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
 ## Table of Contents
 
@@ -60,19 +70,21 @@ However, as the overused quote from Spiderman goes, "With great power comes grea
 
 Great! Let's go head and learn about some really common and useful Bash commands that you will use very often. All of these commands in some way, shape, or form allow you to navigate through and work with files and directories (folders) in your local system.
 
-- `pwd`
-- `ls`
-- `cd`
-- `touch`
-- `mkdir`
-- `mv`
-- `cp`
-- `rm`
-- `cat`
-- `grep`
-- `find`
-- `wc`
-- `open`
+### Command Reference Sheet
+- `pwd` - print working directory
+- `ls` - list directory contents
+- `cd` - change the current working directory
+- `touch` - create a file / change a file access and modification times
+- `mkdir` - create a directory
+- `mv` - move or rename files and directories
+- `cp` - copy files and directories
+- `rm` - remove files and directories
+- `clear` - clears the screen or the terminal
+- `find` - find files or directories under the given directory tree, recursively
+- `cat` - print and concatenate files
+- `grep` - matches patterns in input text.
+- `wc` - count lines, words, or bytes
+- pipe | - chains commands by using the output of the command to the left of the pipe as the input to the command on the right
 
 "But wait! What about the command -"\
 Do not fret, my inner monologue. I have included a link to the top 25 Bash commands commonly used right [here](https://www.educative.io/blog/bash-shell-command-cheat-sheet). Without further ado, let's jump right into it! Open your preferred terminal emulator up, as long as it can run the Bash shell (or an alternative Unix shell).
@@ -210,13 +222,17 @@ Oh no, toxic people!! I must dispose of them.
 
 Great! I have now successfully removed toxic people from my life. If only it were that easy in real life.
 
+A warning though. Remember how I told you in the beginning where you have to be *really* careful with Bash commands because they execute without warning? Nowhere is this more relevant than the `rm` command. When you call `rm` on something, it's not like you're moving a file to Trash or the Recycle Bin. It *actually* gets deleted, so please only use this command when you're absolutely sure you need to delete something.
+
 Again, for removing directories, you have to add something extra. Stop the suspense already! Let's talk about options.
 
 ### Options
 
-All Bash commands will have a set of flags, or **options**, associated to them, which extend their functionality. Although I will only be going over a couple of them today, you can find out about all of them by reading the manuals on the commands by using `man`. For example, to read about the `ls` command, you would type `man ls`. You can press `q` at any time to quit the manual.
+All Bash commands will have a set of flags, or **options**, associated to them, which extend their functionality. Although I will only be going over a couple of them today, you can find out about all of them by reading the manuals on the commands by using `man`. For example, to read about the `ls` command, you would type `man ls`. You can navigate it using Vim-like commands (j to go down, k to go up). You can press `q` at any time to quit the manual.
 
 <img src="images/man.png">
+
+Since the `man` pages are kind of hard to read, I have provided a simpler version of them created by the community [here](https://tldr.ostera.io/).
 
 #### `cp -r`
 
@@ -224,9 +240,8 @@ For the `cp` command, we can specify the `-r` flag to be able to copy an entire 
 
 <img src="images/cp-r.png">
 
-### `rm -rf`
-
-For the `rm` command, we specify both the -r (recursive) and -f (force) commands to remove directories. - f means that it will "force" the removal of files and directories without asking for permission. Notice how if there are multiple options, we can shorten it to one "-" symbol and concatenate the options together.
+### `rm -r`
+Similarly for the `rm` command, we specify both -r (recursive) option to recursively delete the directory itself and everything inside. Notice how if there are multiple options, we can shorten it to one "-" symbol and concatenate the options together.
 
 <img src="images/rm-rf.png">
 
@@ -328,7 +343,9 @@ You can also specify the application to open it with the `-a` option. If you wan
 
 You can also do this for Visual Studio Code, with `open file1.txt -a "Visual Studio Code"`, but the people at Visual Studio Code provided us with a dedicated command to open it: `code`. Then, doing `code file1.txt` should open it successfully in VS Code as well.
 
-Note: if `code` does not work for you, you may have to enable it by opening the Command Palette in VS Code and look for "Shell Command: Install 'code' command in PATH".
+Note: Unfortunately, the `open` command only works on the Mac. There is a way to configure it for Linux, called `xdg-open`.
+
+Note++: if `code` does not work for you, you may have to enable it by opening the Command Palette in VS Code and look for "Shell Command: Install 'code' command in PATH". 
 
 ### Aliases
 
@@ -360,7 +377,27 @@ There are a couple of key bindings that exist in Bash that are useful to know. T
 
 ### Shell Customization
 
-Finally, I want to end off this section of some customization you can do beyond what Bash provides to us by default. Actually, this won't be in Bash at all, but in Z Shell (zsh), which allows for a lot more customization. Since they're both Unix shells, the syntax is all the same.
+### Bash 
+
+Finally, I want to end off this section of some customization you can do beyond what Bash provides to us by default. If we go back to the .bash_profile file we were looking at before, we can also customize what the terminal says to us on startup, as well as the colors of the files and directories. 
+
+On startup, and after every command, terminal will give you a prompt message. This prompt message can be modified by setting the PS1 variable in .bash_profile. For example, If I its value to:
+
+<img src="images/bash.png">
+
+once I restart my terminal, it will be adjusted to this:
+
+<img src="images/prompt.png">
+
+Note: I am editing .bash_profile because that is the file that runs when the shell starts up. For other systems, it might be different. Linux, for example, uses the .bashsrc file instead.
+
+You may also be wondering how I got the colors. That can be changed by setting other variables in .bash_profile, CLICOLOR and LSCOLORS.
+
+<img src="images/colors.png">
+
+### Oh My Zsh
+
+An alternative shell, Z Shell (zsh), allows for a lot of customization as well. Since they're both Unix shells, the syntax is all the same.
 
 [How to install zsh](https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH)
 
