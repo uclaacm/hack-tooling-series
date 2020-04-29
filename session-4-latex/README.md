@@ -1,5 +1,5 @@
 
-LaTeX (pronuounced LAH-tekh or LAY-tekh) is a document preparation system.
+LaTeX (pronounced LAH-tekh or LAY-tekh) is a document preparation system.
 The document preparation system that you have used before is probably
 Microsoft Word or Google Docs. These word processors are classified as "What
 You See Is What You Get" (WYSIWYG). However, with LaTeX, one will edit the
