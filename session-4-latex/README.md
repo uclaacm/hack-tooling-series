@@ -2,7 +2,7 @@
 LaTeX (pronounced LAH-tekh or LAY-tekh) is a document preparation system.
 The document preparation system that you have used before is probably
 Microsoft Word or Google Docs. These word processors are classified as "What
-You See Is What You Get" (WYSIWYG). However, with LaTeX, one will edit the
+You See Is What You Get" (WYSIWYG). However LaTeX follows the philosophy that the writer should only care about content and not worry about formatting. LaTeX will handle formatting. With LaTeX, one will edit the
 document in plain text (like in a code file), and through the LaTeX software,
 you can generated formatted documents in different formats such as PDF. Other
 examples of non-WYSIWYG document processor are HTML and Markdown.
@@ -124,7 +124,25 @@ HTML, this is like the beginning and closing tags.
 All documents have to contains the `document` environment and all the data
 (text you want to show) goes in there.
 
-One important thing here to note in LaTeX is the newline character. In
+Something that most documents have is a title. LaTeX provides an easy creating a title. First, we tell LaTeX what information we want to display in the title like the actual title, author, and date. After, we can display the title with the `\maketitle` command.
+```tex
+\documentclass{article}
+\title{Learning LaTeX}
+\author{Timothy Rediehs}
+\date{April 30, 2020}
+\begin{document}
+  \maketitle
+  Hello World!
+\end{document}
+```
+
+It's important to remember that the **`\maketitle` command is the only thing that went inside of the document environment.** We'll get the following result:
+
+<div align=center>
+  <img width="500px" src="images/title.png">
+</div>
+
+Another important thing here to note in LaTeX is the newline character. In
 WYSIWYG processors, hitting enter means a newline is inserted into the
 documents, or a new paragraph is being created. What happens if we type
 newline in LaTeX? Let's change the content to:
@@ -148,11 +166,12 @@ Then, how would we insert a newline than? The way to start a new paragraph
 in LaTeX is to type 2 newlines, meaning that we leave 1 blank line between
 paragraphs.
 
+You can also specify a new line by typing `\\`.
 ```tex
 \documentclass{article}
 \begin{document}
-  Hello World!
-  This is the 2nd line.
+  Hello World!\\
+  This is the 2nd line.\\
   This is the 3rd line.
 
   This is the 2nd paragraph. One time Knuth decided to crosscompile his
@@ -167,7 +186,7 @@ paragraphs.
 Result:
 
 <div align=center>
-<img width='500px' src="images/paragraph.png">
+<img width='500px' src="images/paragraph_line_breaks.png">
 </div>
 
 Yes, the paragraph are indented properly for you and indentation in the LaTeX
@@ -188,8 +207,8 @@ command. Let's add a few sections to our document.
 \begin{document}
   \section{Introduction}
   \subsection{Donald Knuth "Fun Fact"}
-  Hello World!
-  This is the 2nd line.
+  Hello World!\\
+  This is the 2nd line.\\
   This is the 3rd line.
 
   This is the 2nd paragraph. One time Knuth decided to crosscompile his
@@ -225,7 +244,7 @@ Secondly, notice, we have a new type of commands! With the following format:
 This type of commands does not have any argument. They are usually used to
 specify special characters. For example, since the '`\`' backslash character
 is special in LaTeX to denote commands, to type the character we use a
-special command `\textbackslash` instead. And there is a specialized command
+special command `\textbackslash` instead. Note that you can use `\textbackslash{}` to get a space after the backslash which was omitted before. And there is a specialized command
 called `\LaTeX` to produce an iconic formatting of the word LaTeX. It is a
 way for LaTeX to flex its formatting flexibility. If you use this command,
 people reading the document will for sure know that you are typing in LaTeX.
@@ -282,8 +301,7 @@ Result:
 </div>
 
 Notice how we use `\{` and `\}` to type the braces. Again it is because that 
-they are special within LaTeX. 
-
+they are special within LaTeX. This is called escaping a character. You can do this with other characters with special meanings like `\^` and `\_`.
 Sometimes, you would want a chunk of math equation that is not inline. 
 We use a pair of delimiters: `\[` and `\]`.
 
@@ -292,7 +310,7 @@ Euler's formula is a mathematical formula in complex analysis that
 establishes the fundamental relationship between the trigonometric
 functions and the complex exponential function. Euler's formula states that
 for any real number $x$:
-  \[e^{i\pi} = cos(x) + i\sin(x)\]
+  \[e^{i\pi} = cos(x) + i\sin(x).\]
 ```
 
 Result:
@@ -351,7 +369,7 @@ download and install them. However, on Overleaf, there are already a lot of
 packages that came installed.
 
 To use a package, we use the command `\usepackge{name}`. One of the package 
-that provides a lot of math related functionalities is called `amsmath`. 
+that provides a lot of math related functionalities is called `amsmath` named after the American Mathematical Society.
 
 ```tex
 \documentclass{article}
@@ -372,13 +390,13 @@ matrices.
 How about some linear algebra? The set of all 2 by 2 rotation matrices is 
 defined as such:
 \[
-  \bigg\{ 
+  \left\{ 
   \begin{pmatrix}
       \cos\theta & -\sin\theta \\
       \sin\theta & \cos\theta
   \end{pmatrix}
   : 0 \leq \theta < 2\pi
-  \bigg\}
+  \right\}.
 \]
 ```
 Result:
@@ -387,9 +405,10 @@ Result:
 </div>
 
 We use the `&` ampersand character to indicate the next item in a row and 2
-backslashes `\\` to indicate a new row. The `\bigg` command makes the next
-character chungus big so we get the big curly braces. The big parentheses is
-formatted big the `pmatrix` environment so we don't have to specify it.
+backslashes `\\` to indicate a new row. The `\left` and `\right` commands 
+automatically resize the next character to properly enclose the middle text 
+so we get the big curly braces. The big parentheses is formatted big the 
+`pmatrix` environment so we don't have to specify it.
 
 ### Google, Google, Google. Then Practice, Practice, Practice!
 
@@ -428,8 +447,8 @@ Exercise 1 Solution
   \]
   \[
       \nabla\times\mathbf{B} 
-      = -\mu_0\bigg(\mathbf{J}
-      + \epsilon_0\frac{\partial\mathbf{E}}{\partial t}\bigg)
+      = -\mu_0\left(\mathbf{J}
+      + \epsilon_0\frac{\partial\mathbf{E}}{\partial t}\right)
   \]
 ```
 
@@ -471,6 +490,12 @@ that you can do in LaTeX.
 There are a whole lot more cool packages and functionality of LaTeX waiting
 to be discovered. When you think of something, just Google and see if there
 is already a package there to support it.
+
+Here're some useful packages for getting started:
+
+- Amsmath: Useful for facilitating writing math equations
+- Microtype: Subtly changes formatting and spacing to fit more onto a line/page
+- hyperref: allows you to add hyperlinks to your document (this may be useful for references)
 
 
 ## LaTeX in Other Places
