@@ -2,7 +2,7 @@
 
 **Date**: May 7, 2020\
 **Location**: Zoom\
-**Teachers**: Kristie Lim owo
+**Teachers**: Kristie Lim xd
 
 ## Resources
 
