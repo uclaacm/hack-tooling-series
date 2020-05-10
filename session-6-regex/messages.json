@@ -1,0 +1,72 @@
+{
+    "participants": [
+      {
+        "name": "Joe Bruin"
+      },
+      {
+        "name": "Josephine Bruin"
+      }
+    ],
+    "messages": [
+      {
+        "sender_name": "Joe Bruin",
+        "timestamp_ms": 1560647071505,
+        "content": "i love tswizzle https://www.youtube.com/watch?v=nfWlot6h_JM",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Josephine Bruin",
+        "timestamp_ms": 1560646966452,
+        "content": "omg yeah same",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Josephine Bruin",
+        "timestamp_ms": 1560646965781,
+        "content": "check out this non mysterious video https://www.youtube.com/watch?v=dQw4w9WgXcQ",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Joe Bruin",
+        "timestamp_ms": 1560646883443,
+        "content": "tyty",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Josephine Bruin",
+        "timestamp_ms": 1560646863689,
+        "content": "https://www.youtube.com/watch?v=SNJ9O0DF0Dk this my fav vid",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Joe Bruin",
+        "timestamp_ms": 1560646836678,
+        "content": "big fan of this too https://www.youtube.com/watch?v=TgOu00Mf3kI eight is beautiful",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Joe Bruin",
+        "timestamp_ms": 1560646831885,
+        "content": "not a music video but best song https://www.youtube.com/watch?v=dPPQgPlatwk",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Josephine Bruin",
+        "timestamp_ms": 1560646723965,
+        "content": "gonna be on phone now",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Joe Bruin",
+        "timestamp_ms": 1560646663163,
+        "content": "ah yes mobile youtube links look different",
+        "type": "Generic"
+      },
+      {
+        "sender_name": "Josephine Bruin",
+        "timestamp_ms": 1537758387951,
+        "content": "https://youtu.be/mxyucLe9YE4 https://youtu.be/Ylffjwvm8yM",
+        "type": "Generic"
+      }
+    ]
+}
