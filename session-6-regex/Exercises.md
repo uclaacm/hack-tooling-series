@@ -4,7 +4,7 @@ Copy the text boxes into https://regexr.com/ and write an expression according t
 
 If you use `^` (start of string) or `$` (end of string) make sure the multi-line flag is enabled. This is found in the "Flags" dropdown. 
 
-<img src="images/multiline.png">
+<img src="images/multiline.png" height="250">
 
 ## Street Addresses
 
@@ -16,7 +16,8 @@ Match any instance of "ROAD" that can be replaced with "RD":
 ```
 
 Your expression should highlight like this:
-<img src="images/streetaddresses.png" alt="Street Address Exercise Output">
+
+<img src="images/streetaddresses.png" alt="Street Address Exercise Output" height="100">
 
 ## Phone Numbers
 
@@ -33,7 +34,8 @@ Invalid:
 123-12-1231
 ```
 Your expression should highlight like this:
-<img src="images/phonenumbers1.png" alt="Phone Numbers Exercise Output 1" height="250">
+
+<img src="images/phonenumbers1.png" alt="Phone Numbers Exercise Output 1" height="200">
 
 Match the previous phone numbers and phone numbers without dash separators:
 
@@ -53,6 +55,7 @@ Invalid:
 123121231
 ```
 Your expression should highlight like this:
+
 <img src="images/phonenumbers2.png" alt="Phone Numbers Exercise Output 2" height="250">
 
 Match the previous numbers and phone numbers with the area code in parentheses:
@@ -81,6 +84,7 @@ Invalid:
 (123)121231
 ```
 Your expression should highlight like this:
+
 <img src="images/phonenumbers3.png" alt="Phone Numbers Exercise Output 3" height="250">
 
 If you want to match any special character, you will need to escape it with a backslash.
@@ -116,6 +120,7 @@ Invalid:
 MMMM
 ```
 Your expression should highlight like this:
+
 <img src="images/romannumerals1000.png" height="250">
 
 Match the hundreds place of a Roman numeral:
@@ -137,6 +142,7 @@ CCCC
 DD
 ```
 Your expression should highlight like this:
+
 <img src="images/romannumerals100.png" height="250">
 
 Match the tens place of a Roman numeral:
@@ -158,6 +164,7 @@ XXXX
 LL
 ```
 Your expression should highlight like this:
+
 <img src="images/romannumerals10.png" height="250">
 
 Match the ones place of a Roman numeral:
@@ -179,6 +186,7 @@ IIII
 VV
 ```
 Your expression should highlight like this:
+
 <img src="images/romannumerals1.png" height="250">
 
 Match any valid Roman numeral:
@@ -202,6 +210,7 @@ MCMC
 MCMLXXXX
 ```
 Your expression should highlight like this:
+
 <img src="images/romannumerals.png" height="250">
 
 These exercises are based off https://diveintopython3.net/regular-expressions.html. Read the full article for more complex and detailed information on Python regular expressions.
