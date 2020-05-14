@@ -283,6 +283,8 @@ We could give the mouse a choice using the following construction. This automato
 
 Here's a challenge. Can you make a FSA/maze for the regular expression `a?`?
 
+<details><summary>Answer</summary>
+
 It turns out to be quite simple. We just replace one of the branches in the regular expression for `a|b` to be an ε-move, as `a?` is equivalent to `a|` – `a` or nothing.
 
 ![An FSA with the start state and a goal state, as well two paths between each. The first path has in order: ε, ε, ε. The second path has in order: ε, a, ε.](images/Thompson-question.svg)
@@ -290,6 +292,8 @@ It turns out to be quite simple. We just replace one of the branches in the regu
 But we also see that there are many ε-moves in this maze, which seems to be much ado about nothing. Can we simplify it somehow? Indeed we can.
 
 ![An FSA with the start state and a goal state, as well two paths between each. The first path is marked with ε. The second path is marked with a.](images/Thompson-question2.svg)
+
+</details>
 
 ### Repetition: The `*` Quantifier
 
@@ -299,9 +303,13 @@ With some cleverness, we can also create mazes for `*`. This automaton represent
 
 ### Challenge: The `+` Quantifier
 
-With some cleverness, we can also create mazes for `*`. This automaton represents the regular expression `a*b`.
+Here's another challenge. How do you create an automaton that matches the regular expression `a+b`? Hint: it'll look quite similar to what we just saw.
+
+<details><summary>Answer</summary>
 
 ![An FSA with the start state, an intermediate state, and a goal state. The start state goes to the intermediate state with a path marked with a. The intermediate state has a self-loop marked with a. There is furthermore a path between the intermediate and goal states marked with b.](images/Thompson-kleene-plus.svg)
+
+</details>
 
 ### Regular Expressions and the Turing Award
 
