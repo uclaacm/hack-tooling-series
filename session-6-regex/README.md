@@ -313,7 +313,7 @@ Here's another challenge. How do you create an automaton that matches the regula
 
 ### Regular Expressions and the Turing Award
 
-Rabin and Scott (1959) proved that modern computers can be very efficient in finding cheese in these mazes. They did so by reducing any finite-state automaton to a more restricted form called a _deterministic finite-state automaton_, or DFA, that we have known to be quite efficient. A DFA is a finite-state automaton
+Rabin and Scott (1959) proved that modern computers can be very efficient in finding cheese in these mazes. They did so by reducing any finite-state automaton to a more restricted form called a _deterministic finite automaton_, or DFA, that we have known to be quite efficient. A DFA is a finite-state automaton
 
 - without ε-moves, and
 - there is at most one arrow from a location to another with the same marking.
